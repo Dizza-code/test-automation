@@ -12,10 +12,10 @@ def test_tenant_cannot_see_other_users():
         f"{BASE_URL}/users",
         json={"name": "Tenant A User", "email":"a@example.com", "role":"user"},
         headers=get_auth_headers(TENANT_A_TOKEN)
-).json()
-# Tenant B tries to fetch user A's data
-response = requests.get(
-    f"{BASE_URL}/users/{user_a['id']}",
-    headers=get_auth_headers(TENANT_B_TOKEN)
-)
-assert response.status_code == 404 # should not be found for Tenant B
+    ).json()
+    # Tenant B tries to fetch user A's data
+    response = requests.get(
+        f"{BASE_URL}/users/{user_a['id']}",
+        headers=get_auth_headers(TENANT_B_TOKEN)
+    )
+    assert response.status_code == 404 # should not be found for Tenant B
