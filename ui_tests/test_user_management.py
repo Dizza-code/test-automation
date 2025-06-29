@@ -53,3 +53,8 @@ time.sleep(2)
 
 assert unique_email not in driver.page_source
 
+#Log out
+driver.find_element(By.ID, "logout").click()
+time.sleep(1)
+assert "Login" in driver.page_source
+
