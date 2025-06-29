@@ -1,6 +1,7 @@
 import requests 
 from utils.test_helpers import BASE_URL, get_headers_for_role
 
+# Test unauthorized access to user routes
 def test_unauthorized_access():
     response = requests.get(f"{BASE_URL}/users")
     assert response == 401

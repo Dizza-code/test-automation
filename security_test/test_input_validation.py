@@ -2,6 +2,7 @@ import requests
 
 from utils.test_helpers  import BASE_URL, get_headers_for_role, malicious_inputs
 
+# Test cases for input validation and security vulnerabilities
 def test_sql_injection_login():
     payload = {
         "email": malicious_inputs()["sql_injection"],

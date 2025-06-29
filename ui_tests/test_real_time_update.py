@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-BASE_URL = "http://localhost:3000"  # Adjust as needed
+BASE_URL = "http://localhost:3000"  
 
 def init_driver():
     options = Options()
