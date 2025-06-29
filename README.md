@@ -1,1 +1,27 @@
-# test-automation
+name: Run Test Suite
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Run API Tests
+      run: pytest api_tests/
+
+    - name: Run UI Tests (headless)
+      run: pytest ui_tests/ --headless
